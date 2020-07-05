@@ -8,12 +8,17 @@
     "watch:scss": "onchange -i -v \"./src/scss/\" -- npm run scss",
     "lint": "eslint --fix ./src/js/*.js",
     "watch:js": "onchange -i -v \"./src/js/*.js\" -- npm run lint",
+    "babel": "babel ./src/js/ -o dist/js/index.js",
+    "babel:watch": "onchange -i -v \"./src/js/*.js\" -- npm run babel",
     "start": "browser-sync --server --files \"./index.html, ./src/**/*, ./dist/**/*\"",
-    "watch:all": "parallelshell \"npm start\" \"npm run watch:scss\" \"npm run watch:js\""
+    "watch:all": "parallelshell \"npm start\" \"npm run watch:scss\" \"npm run watch:js\" \"npm run babel:watch\""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
     "eslint": "^7.4.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
