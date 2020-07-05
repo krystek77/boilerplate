@@ -1,0 +1,25 @@
+{
+  "name": "krystian-boilerplate",
+  "version": "1.0.0",
+  "description": "\"Basic boilerplate\"",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass --output-style compressed ./src/scss/ --output ./dist/css/",
+    "watch:scss": "onchange -i -v \"./src/scss/\" -- npm run scss",
+    "lint": "eslint --fix ./src/js/*.js",
+    "watch:js": "onchange -i -v \"./src/js/*.js\" -- npm run lint",
+    "start": "browser-sync --server --files \"./index.html, ./src/**/*, ./dist/**/*\"",
+    "watch:all": "parallelshell \"npm start\" \"npm run watch:scss\" \"npm run watch:js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "node-sass": "^4.14.1",
+    "onchange": "^7.0.2",
+    "parallelshell": "^3.0.1"
+  },
+  "dependencies": {}
+}
